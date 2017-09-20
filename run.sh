@@ -17,7 +17,7 @@ echo "stderr_logfile=/var/log/ff.err" >>/root/supervisord.conf;
 echo "[supervisord]" >>/root/supervisord.conf;
 
 apt-get update;
-apt-get install -y xorg lxde-core tightvncserver firefox-esr supervisor cron expect;
+apt-get install -y xorg lxde-core tightvncserver firefox-esr supervisor cron expect wget;
 apt-get install -y fonts-arphic-ukai fonts-arphic-uming fonts-arphic-gbsn00lp fonts-arphic-bkai00mp fonts-arphic-bsmi00lp;
 
 #设置vnc密码
@@ -74,7 +74,7 @@ echo 'done' >>/root/run.sh;
 chmod 777 /root/run.sh;
 
 
-nohup bash /root/run.sh   >/dev/null 2>&1 &
+nohup bash /root/run.sh &
 #30分钟kill一次Firefox
 #echo "0 * * * * root pkill firefox-esr" >>/etc/crontab;
 echo "*/25 * * * * root pkill firefox-esr" >>/etc/crontab;
