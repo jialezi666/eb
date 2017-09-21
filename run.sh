@@ -51,6 +51,8 @@ touch /var/log/ff.log;
 touch /var/log/ff.err;
 
 #启动
+echo '#!/bin/bash' >>/root/re.sh;
+echo 'export USER="root"' >>/root/re.sh;
 echo 'pkill vnc' >>/root/re.sh;
 echo 'pkill supervisord' >>/root/re.sh;
 echo 'vncserver' >>/root/re.sh;
