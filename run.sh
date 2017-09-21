@@ -71,11 +71,12 @@ echo '  echo "it is running"' >>/root/run2.sh;
 echo '  fi' >>/root/run2.sh;
 echo '  sleep 30' >>/root/run2.sh;
 echo 'done' >>/root/run2.sh;
-chmod 777 /root/run2.sh;
+chmod 777 /root/run2.sh
 
 
-nohup bash /root/run2.sh &
 #30分钟kill一次Firefox
 #echo "0 * * * * root pkill firefox-esr" >>/etc/crontab;
 echo "*/25 * * * * root pkill firefox-esr" >>/etc/crontab;
-/etc/init.d/cron restart;
+/etc/init.d/cron restart
+
+bash /root/run2.sh
