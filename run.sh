@@ -58,23 +58,23 @@ echo "/usr/bin/supervisord -c /root/supervisord.conf" >>/root/re.sh;
 chmod 777 /root/re.sh;
 
 #防止vnc挂了
-echo '#!/bin/bash' >>/root/run.sh;
-echo 'while [ 1 ]' >>/root/run.sh;
-echo 'do' >>/root/run.sh;
-echo '  ps -fe|grep Xtightvnc |grep -v grep' >>/root/run.sh;
-echo '  if [ $? -ne 0 ]' >>/root/run.sh;
-echo '  then' >>/root/run.sh;
-echo '  echo "start ..."' >>/root/run.sh;
-echo '  /root/re.sh &> /dev/null &' >>/root/run.sh;
-echo '  else' >>/root/run.sh;
-echo '  echo "it is running"' >>/root/run.sh;
-echo '  fi' >>/root/run.sh;
-echo '  sleep 30' >>/root/run.sh;
-echo 'done' >>/root/run.sh;
-chmod 777 /root/run.sh;
+echo '#!/bin/bash' >>/root/run2.sh;
+echo 'while [ 1 ]' >>/root/run2.sh;
+echo 'do' >>/root/run2.sh;
+echo '  ps -fe|grep Xtightvnc |grep -v grep' >>/root/run2.sh;
+echo '  if [ $? -ne 0 ]' >>/root/run2.sh;
+echo '  then' >>/root/run2.sh;
+echo '  echo "start ..."' >>/root/run2.sh;
+echo '  /root/re.sh &> /dev/null &' >>/root/run2.sh;
+echo '  else' >>/root/run2.sh;
+echo '  echo "it is running"' >>/root/run2.sh;
+echo '  fi' >>/root/run2.sh;
+echo '  sleep 30' >>/root/run2.sh;
+echo 'done' >>/root/run2.sh;
+chmod 777 /root/run2.sh;
 
 
-nohup bash /root/run.sh &
+nohup bash /root/run2.sh &
 #30分钟kill一次Firefox
 #echo "0 * * * * root pkill firefox-esr" >>/etc/crontab;
 echo "*/25 * * * * root pkill firefox-esr" >>/etc/crontab;
